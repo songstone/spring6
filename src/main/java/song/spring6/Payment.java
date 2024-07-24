@@ -1,2 +1,5 @@
-package song.spring6;public class Payment {
+package song.spring6;
+
+public class Payment {
+
 }
