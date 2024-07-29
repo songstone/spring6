@@ -1,14 +1,17 @@
 package song.spring6;
 
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import java.io.IOException;
 import java.math.BigDecimal;
 
 public class Client {
 
     public static void main(String[] args) throws IOException {
-        ObjectFactory objectFactory = new ObjectFactory();
+        BeanFactory beanFactory = new AnnotationConfigApplicationContext(ObjectFactory.class);
+        PaymentService paymentService = beanFactory.getBean(PaymentService.class);
 
-        PaymentService paymentService = objectFactory.paymentService();
         Payment payment = paymentService.prepare(100L, "USD", BigDecimal.valueOf(50.7));
         System.out.println(payment);
     }
