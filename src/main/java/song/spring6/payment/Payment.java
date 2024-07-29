@@ -1,4 +1,4 @@
-package song.spring6;
+package song.spring6.payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

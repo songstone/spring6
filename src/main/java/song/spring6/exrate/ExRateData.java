@@ -1,4 +1,4 @@
-package song.spring6;
+package song.spring6.exrate;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

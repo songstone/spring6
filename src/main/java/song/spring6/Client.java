@@ -2,6 +2,8 @@ package song.spring6;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import song.spring6.payment.Payment;
+import song.spring6.payment.PaymentService;
 
 import java.io.IOException;
 import java.math.BigDecimal;

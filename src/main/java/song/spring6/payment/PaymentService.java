@@ -1,4 +1,4 @@
-package song.spring6;
+package song.spring6.payment;
 
 import java.io.IOException;
 import java.math.BigDecimal;

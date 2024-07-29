@@ -1,6 +1,7 @@
-package song.spring6;
+package song.spring6.exrate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import song.spring6.payment.ExRateProvider;
 
 import java.io.BufferedReader;
 import java.io.IOException;
