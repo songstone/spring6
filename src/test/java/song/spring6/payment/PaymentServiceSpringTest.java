@@ -38,8 +38,4 @@ public class PaymentServiceSpringTest {
 //        assertThat(payment.getValidUntil()).isAfter(LocalDateTime.now());
 //        assertThat(payment.getValidUntil()).isBefore(LocalDateTime.now().plusMinutes(30));
     }
-
-    private static void testAmount(BigDecimal exRate, BigDecimal convertedAmount) throws IOException {
-
-    }
 }
