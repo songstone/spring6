@@ -24,7 +24,7 @@ public class PaymentServiceSpringTest {
     @Autowired Clock clock;
 
     @Test
-    void convertedAmount() throws IOException {
+    void convertedAmount() {
         // exRate: 100
         Payment payment = paymentService.prepare(1L, "USD", BigDecimal.TEN);
 
@@ -40,7 +40,7 @@ public class PaymentServiceSpringTest {
     }
 
     @Test
-    void validUntil() throws IOException {
+    void validUntil() {
         Payment payment = paymentService.prepare(1L, "USD", BigDecimal.TEN);
 
         LocalDateTime now = LocalDateTime.now(this.clock);
