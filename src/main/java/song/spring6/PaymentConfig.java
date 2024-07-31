@@ -2,8 +2,9 @@ package song.spring6;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import song.spring6.api.ApiTemplate;
-import song.spring6.exrate.WebApiExRateProvider;
+import org.springframework.http.client.JdkClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
+import song.spring6.exrate.RestTemplateExRateProvider;
 import song.spring6.payment.ExRateProvider;
 import song.spring6.payment.PaymentService;
 
@@ -19,12 +20,12 @@ public class PaymentConfig {
 
     @Bean
     public ExRateProvider exRateProvider() {
-        return new WebApiExRateProvider(apiTemplate());
+        return new RestTemplateExRateProvider(restTemplate());
     }
 
     @Bean
-    public ApiTemplate apiTemplate() {
-        return new ApiTemplate();
+    public RestTemplate restTemplate() {
+        return new RestTemplate(new JdkClientHttpRequestFactory());
     }
 
     @Bean
