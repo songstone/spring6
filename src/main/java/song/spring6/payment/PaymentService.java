@@ -9,7 +9,6 @@ public class PaymentService {
     private final ExRateProvider exRateProvider;
     private final Clock clock;
 
-
     public PaymentService(ExRateProvider exRateProvider, Clock clock) {
         this.exRateProvider = exRateProvider;
         this.clock = clock;
