@@ -2,6 +2,7 @@ package song.spring6;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import song.spring6.api.ApiTemplate;
 import song.spring6.exrate.WebApiExRateProvider;
 import song.spring6.payment.ExRateProvider;
 import song.spring6.payment.PaymentService;
@@ -18,7 +19,12 @@ public class PaymentConfig {
 
     @Bean
     public ExRateProvider exRateProvider() {
-        return new WebApiExRateProvider();
+        return new WebApiExRateProvider(apiTemplate());
+    }
+
+    @Bean
+    public ApiTemplate apiTemplate() {
+        return new ApiTemplate();
     }
 
     @Bean
