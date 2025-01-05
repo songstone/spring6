@@ -7,11 +7,13 @@ import songs.spring6.payment.ExRateProvider;
 import songs.spring6.exrate.WebApiExRateProvider;
 import songs.spring6.payment.PaymentService;
 
+import java.time.Clock;
+
 @Configuration
-public class ObjectFactory {
+public class PaymentConfig {
     @Bean
     public PaymentService paymentService() {
-        return new PaymentService(cachedExRateProvider());
+        return new PaymentService(exRateProvider(), clock());
     }
 
     @Bean
@@ -22,5 +24,10 @@ public class ObjectFactory {
     @Bean
     public ExRateProvider exRateProvider() {
         return new WebApiExRateProvider();
+    }
+
+    @Bean
+    public Clock clock() {
+        return Clock.systemDefaultZone();
     }
 }
