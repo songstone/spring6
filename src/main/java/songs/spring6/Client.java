@@ -2,9 +2,10 @@ package songs.spring6;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import songs.spring6.payment.Payment;
+import songs.spring6.payment.PaymentService;
 
 import java.math.BigDecimal;
-import java.util.concurrent.TimeUnit;
 
 public class Client {
     public static void main(String[] args) throws Exception {

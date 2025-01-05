@@ -1,4 +1,6 @@
-package songs.spring6;
+package songs.spring6.exrate;
+
+import songs.spring6.payment.ExRateProvider;
 
 import java.io.IOException;
 import java.math.BigDecimal;

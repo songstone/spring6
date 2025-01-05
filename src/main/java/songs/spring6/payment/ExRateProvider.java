@@ -1,4 +1,4 @@
-package songs.spring6;
+package songs.spring6.payment;
 
 import java.math.BigDecimal;
 
