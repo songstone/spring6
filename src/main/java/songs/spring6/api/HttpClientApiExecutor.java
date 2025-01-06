@@ -14,7 +14,7 @@ public class HttpClientApiExecutor implements ApiExecutor {
             .GET()
             .build();
 
-        try(HttpClient client = HttpClient.newBuilder().build()) {
+        try (HttpClient client = HttpClient.newBuilder().build()) {
             return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
