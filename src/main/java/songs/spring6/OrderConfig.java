@@ -3,25 +3,22 @@ package songs.spring6;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import songs.spring6.data.JdbcOrderRepository;
 import songs.spring6.order.OrderRepository;
 import songs.spring6.order.OrderService;
 import songs.spring6.order.OrderServiceImpl;
-import songs.spring6.order.OrderServiceTxProxy;
 
 import javax.sql.DataSource;
 
 @Configuration
 @Import(DataConfig.class)
+@EnableTransactionManagement
 public class OrderConfig {
 
     @Bean
-    public OrderService orderService(
-        PlatformTransactionManager transactionManager,
-        OrderRepository orderRepository
-    ) {
-        return new OrderServiceTxProxy(new OrderServiceImpl(orderRepository), transactionManager);
+    public OrderService orderService(OrderRepository orderRepository) {
+        return new OrderServiceImpl(orderRepository);
     }
 
     @Bean
