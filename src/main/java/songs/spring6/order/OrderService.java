@@ -1,27 +1,10 @@
 package songs.spring6.order;
 
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.support.TransactionTemplate;
-
 import java.math.BigDecimal;
+import java.util.List;
 
-@Service
-public class OrderService {
-    private final OrderRepository orderRepository;
-    private final PlatformTransactionManager transactionManager;
+public interface OrderService {
+    Order createOrder(String id, BigDecimal total);
 
-    public OrderService(OrderRepository orderRepository, PlatformTransactionManager transactionManager) {
-        this.orderRepository = orderRepository;
-        this.transactionManager = transactionManager;
-    }
-
-    public Order createOrder(String id, BigDecimal total) {
-        Order order = new Order(id, total);
-
-        return new TransactionTemplate(transactionManager).execute(status -> {
-            orderRepository.save(order);
-            return order;
-        });
-    }
+    List<Order> createOrders(List<OrderReq> reqs);
 }
